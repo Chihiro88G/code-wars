@@ -66,7 +66,10 @@ const obj = {
   out: 'test',
 }
 
+// this works in case of static property access
 console.log(obj.in)
+
+// in case of dynamic access only below works
 console.log(obj['in'])
 
 
@@ -103,3 +106,5 @@ function Practice() {
 }
 
 console.log(Practice())
+
+
