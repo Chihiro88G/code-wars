@@ -124,5 +124,114 @@ console.log(func6("George Raymond Richard Martin"))
 // output: [13, 67, 54];   [youngest, oldest, (oldest - youngest)]
 
 function func7(arr) {
+  const min = Math.min(...arr.map(person => person.age));
+  const max = Math.max(...arr.map(person => person.age));
+  const difference = max - min;
+
+  return [min, max, difference]
+}
+
+console.log(func7([
+  {
+    name: "John",
+    age: 13,
+  },
+  {
+    name: "Mark",
+    age: 56,
+  },
+  {
+    name: "Rachel",
+    age: 45,
+  },
+  {
+    name: "Nate",
+    age: 67,
+  },
+  {
+    name: "Jennifer",
+    age: 65,
+  },
+]))
+
+
+// Devs like to abbreviate everything: k8s means Kubernetes, a11y means accessibility, l10n means localization. 
+// You get the Dev numeronyms by taking the first and the last letter and counting the number of letters in between. 
+// Words that have less than 4 letters aren't abbreviated, because that would just be odd. 
+// The input is a sentence, and you should abbreviate every word that is 4 letters long or longer. There won't be any punctuation in the sentence. g2d l2k e6e
+
+// input: "Every developer likes to mix kubernetes and javascript"
+// output: "E3y d7r l3s to mix k8s and j8t"
+
+function func8(str) {
+  return str.split(' ').map(word => {
+    const charArr = word.split('');
+
+    if (charArr.length < 4) return word;
+    return (charArr[0] + (charArr.length - 1 - 1) + charArr[charArr.length - 1]);
+  }).join(' ');
+}
+
+console.log(func8("Every developer likes to mix kubernetes and javascript"))
+
+
+// If the given input is a number, you should return the factorial of that number. 
+// The factorial of a natural number n is the product of the positive integers less than or equal to n. So, 2! = 2, 3! = 6, 4! = 24 and so on.
+
+// input: 6
+// output: 720
+
+function func9(num) {
+  let factorial = 1;
+
+  for (let i = 1; i <= num; i++) {
+    factorial = factorial * i    
+  }
+
+  return factorial;
+}
+
+console.log(func9(6))
+
+
+// other way using array
+const array = new Array(input).fill(null);
+// array is [null, null, null, null, null, null]
+
+array
+  .map(function (currentValue, index) {
+    return index + 1;
+  })
+  .reduce(function (accumulator, currentValue) {
+    return accumulator * currentValue;
+  });
+
+// or written with Arrow function
+new Array(input)
+  .fill(null)
+  .map((currentValue, index) => index + 1)
+  .reduce((accumulator, currentValue) => accumulator * currentValue);
+
+
+
+// Count the occurrences of distinct elements in the given 2D array. The given input is an array, the elements of which are arrays of strings. 
+// The result is an object whose property names are the values from the arrays and their value is the number of their occurrences.
+
+// input: [
+//   ["a", "b", "c"],
+//   ["c", "d", "f"],
+//   ["d", "f", "g"],
+// ];
+
+// output:  {
+  //   a: 1,
+  //   b: 1,
+  //   c: 2,
+  //   d: 2,
+  //   f: 2,
+  //   g: 1,
+  // }
+
+function func10(arr) {
   
 }
